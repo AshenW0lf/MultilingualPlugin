@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 
 namespace Plugin.Multilingual.Abstractions
@@ -14,5 +13,9 @@ namespace Plugin.Multilingual.Abstractions
         CultureInfo[] CultureInfoList { get; }
         CultureInfo[] NeutralCultureInfoList { get; }
         CultureInfo GetCultureInfo(string name);
+
+        #region Culture Change Events
+        event EventHandler<CultureChangeArgs> OnCultureChanged;
+        #endregion Culture Change Events
     }
 }

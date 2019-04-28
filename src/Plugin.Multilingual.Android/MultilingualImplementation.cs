@@ -19,9 +19,11 @@ namespace Plugin.Multilingual
             }
             set
             {
+                var args = new CultureChangeArgs(_currentCultureInfo, value);
                 _currentCultureInfo = value;
                 Thread.CurrentThread.CurrentCulture = value;
                 Thread.CurrentThread.CurrentUICulture = value;
+                OnCultureChanged?.Invoke(this, args);
             }
         }
 
@@ -32,5 +34,9 @@ namespace Plugin.Multilingual
         public CultureInfo[] NeutralCultureInfoList { get { return CultureInfo.GetCultures(CultureTypes.NeutralCultures); } }
 
         public CultureInfo GetCultureInfo(string name) { return CultureInfo.GetCultureInfo(name); }
+        
+        #region Events
+        public event EventHandler<CultureChangeArgs> OnCultureChanged;
+        #endregion Events
     }
 }
