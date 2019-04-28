@@ -5,7 +5,7 @@ using System.Globalization;
 namespace Plugin.Multilingual
 {
   /// <summary>
-  /// Cross platform Multilingual implemenations
+  /// Cross platform Multilingual implementations
   /// </summary>
   public class CrossMultilingual
   {
